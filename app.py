@@ -1,9 +1,10 @@
 from flask import Flask, render_template,request
-
+from flaskwebui import FlaskUI
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template,Response
 
 app=Flask(__name__)
+ui = FlaskUI(app, width=500, height=500)
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -16,4 +17,4 @@ def temp():
 
 if __name__=="__main__":
     # main()
-    app.run(debug=True)
+    ui.run()
